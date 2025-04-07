@@ -1,0 +1,184 @@
+openapi: 3.0.0
+servers:
+  - description: Locksmith API
+    url: http://localhost:5050/locksmith
+info:
+  version: "1.0.0"
+  title: Locksmith API
+  description: An API to controll and monitor doors
+paths:
+  /doors:
+    get:
+      tags:
+        - Doors
+      description: returns all registered doors for requested user.
+      operationId: get_doors
+      responses:
+        '200':
+          description: All the doors connected to username
+          content:
+            application/json:
+              schema:
+                $ref: '#/responses/schemas/Doors'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/requests/schemas/GetDoors'
+
+  /doors/{doors_id}:
+    post:
+      tags:
+        - Doors
+      operationId: get_door_id
+      parameters:
+        - name: doors_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/requests/schemas/OpenDoors'
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/responses/schemas/Open'
+
+  /doors/{doors_id}/loggs:
+    get:
+      tags:
+        - Doors
+      operationId: get_door_loggs
+      parameters:
+        - name: doors_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/requests/schemas/GetDoorLoggs'
+      responses:
+        '200':
+          description: response
+          content:
+            application/json:
+              schema:
+                $ref: '#/responses/schemas/DoorLoggs'
+
+
+requests:
+  schemas:
+    GetDoors:
+      type: object
+      required: true
+      properties:
+        header:
+          $ref: '#/requests/schemas/GetDoorsHeader'
+      description: ok
+    GetDoorsHeader:
+      type: object
+      properties:
+        username:
+          type: string
+          example: 'Ali'
+        type:
+          type: string
+          example: 'get_user_doors'
+
+    OpenDoors:
+      type: object
+      required: true
+      properties:
+        header:
+          $ref: '#/requests/schemas/OpenDoorsHeader'
+        body:
+          $ref: '#/requests/schemas/OpenDoorsBody'
+      description: ok
+    OpenDoorsHeader:
+      type: object
+      properties:
+        door_id:
+          type: integer
+          example: 1
+        username:
+          type: string
+          example: 'Ali'
+        type:
+          type: string
+          example: 'client_open'
+    OpenDoorsBody:
+      type: object
+      properties:
+        text:
+          type: string
+          example: 'open_1'
+
+    GetDoorLoggs:
+      type: object
+      required: true
+      properties:
+        header:
+          $ref: '#/requests/schemas/GetDoorLoggsHeader'
+      description: ok
+    GetDoorLoggsHeader:
+      type: object
+      properties:
+        type:
+          type: string
+          example: 'get_door_loggs'
+
+
+responses:
+  schemas:
+    Doors:
+      type: object
+      properties:
+        doors:
+          type: array
+          items:
+            $ref: '#/responses/schemas/Door'
+      description: ok
+    Door:
+      type: integer
+      format: int32
+      example: 1
+
+    Open:
+      type: object
+      properties:
+        response:
+          type: string
+          example: 'Door1 is open'
+
+    DoorLoggs:
+      type: object
+      properties:
+        loggs:
+          type: array
+          items:
+            $ref: '#/responses/schemas/DoorLogg'
+      description: ok
+    DoorLogg:
+      type: object
+      properties:
+        username:
+          type: string
+          example: 'Ali'
+        event:
+          type: string
+          example: 'Attempted Access Keypad'
+        access:
+          type: boolean
+          example: true
+        entry_time:
+          type: string
+          example: '2023-12-11 16:29:28'

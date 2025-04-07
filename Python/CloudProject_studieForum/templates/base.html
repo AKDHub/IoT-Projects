@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Study Room - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script type="text/javascript" src="{{url_for('static', filename='script/main.js')}}"></script>
+  </head>
+  <body>
+  <div class="content">
+      <div class="header">
+          <div class="header_align">
+              <a href="/" class="logo">
+                <img src="{{ url_for('static', filename='images/logo_study_room.png') }}" alt='logo'/>
+              </a>
+              {% if 'username' in session %}
+                <p>Welcome, {{ session['username'] }}</p>
+              {% endif %}
+              <!--
+              <a href="/" class="header_text">STUDY ROOM</a>
+              -->
+          </div>
+      </div>
+
+  {% block menu %}
+  {% endblock %}
+
+      {% block body %}
+      {% endblock %}
+  </div>
+  </body>
+</html>

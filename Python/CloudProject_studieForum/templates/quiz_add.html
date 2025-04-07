@@ -1,0 +1,32 @@
+{% extends "quizes.html" %}
+
+{% block body %}
+  <p>Add a new question to a course quiz!</p>
+<div class="form_add_question">
+  <form class="add_question" action="/add_question" method="POST">
+      <label for="question">Question: </label><br>
+      <textarea class="input.question" id="question" name="question" placeholder="Enter your question..."></textarea><br>
+      <label for="answer">Answer: </label><br>
+      <textarea class="input.answer" id="answer" name="answer" placeholder="Enter your answer..."></textarea><br>
+      <label for="course_slct">Select course for the question: </label><br>
+      <div class="col-75">
+          <select id="course_slct" name="course_slct">
+              {% for i in range(courses | length) %}
+                <option value="{{ courses[i][1] }}">{{ courses[i][1] }}</option>
+              {% endfor %} <!-- Jinja2, motor i bakgrunden -->
+          </select>
+      </div><br><br>
+      <!--
+      <label for="topic_slct">Select topic for the quiz: </label><br>
+      <div class="col-75">
+          <select id="topic_slct" name="topic_slct">
+              {% for i in range(topics | length) %}
+                <option value="{{ topics[i][1] }}">{{ topics[i][1] }}</option>
+              {% endfor %}
+          </select>
+      </div><br><br>
+      -->
+       <input type="submit" value="Add question">
+  </form>
+</div>
+{% endblock %}

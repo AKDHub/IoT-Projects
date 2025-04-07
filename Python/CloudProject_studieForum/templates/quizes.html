@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+Quiz
+{% endblock %}
+
+{% block menu %}
+    <div class="topnav">
+        <a href="/">Home</a>
+        <div class="dropdown">
+            <form action="/courses">
+                <button class="dropbtn">Courses
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+                {% for i in range(courses | length) %}
+                <a href="/courses/info?course_id={{ courses[i][0] }}">{{ courses[i][1] }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <form action="/quizes">
+                <button class="dropbtn-active">Quiz
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+                <a href="/quizes/quiz_time">Take Quiz</a>
+                <a href="/quizes/add">Add Quiz</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            {% if 'username' in session %}
+            <form action="/profile">
+            {% else %}
+            <form action="/login">
+            {% endif %}
+                <button class="dropbtn" type="submit">Profile
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+            {% if 'username' in session %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h4>Welcome to the quiz wiz!</h4>
+    <p>You can either <a class="quiz_link" href="/quizes/add">add a new question to a course</a></p>
+    <p>Or you can <a class="quiz_link" href="/quizes/quiz_time">take a course quiz</a></p>
+{% endblock %}

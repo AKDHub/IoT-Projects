@@ -1,0 +1,3 @@
+När du kör docker build, kör med:
+
+$ docker build --platform linux/amd64 -t simonmartinsson/studyroom .

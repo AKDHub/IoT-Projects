@@ -1,0 +1,9 @@
+{% extends "courses.html" %}
+
+{% block body %}
+  <h2 style="text-align: center;">{{ course.name }}</h2>
+  <p style="text-align: center;">{{ course.info|replace('\n', '<br>')|safe }}</p>
+  <form class="course_info_take_quiz" action="/quizes/quiz_time/{{ course.id }}/quiz" style="text-align: center;">
+    <input type="submit" value="TAKE THE COURSE QUIZ!">
+  </form>
+{% endblock %}

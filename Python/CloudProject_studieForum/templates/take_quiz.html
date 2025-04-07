@@ -1,0 +1,18 @@
+{% extends "quizes.html" %}
+{% block title %}
+Quiz - Take Quiz!
+{% endblock %}
+
+{% block body %}
+    <h4>Choose to start a quiz in one of the courses below!</h4>
+    <br>
+    <div class="take_quiz_div">
+        <ul class="take_quiz_list">
+        {% for i in range(courses | length) %}
+            <li>
+                <span>{{ courses[i][1] }}</span><span><a class="take_quiz_link" href="/quizes/quiz_time/{{ courses[i][0] }}/quiz">START QUIZ!</a></span>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

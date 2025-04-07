@@ -1,0 +1,18 @@
+{% extends "quizes.html" %}
+
+{% block body %}
+<h4>Course Quiz for {{course.name}}</h4>
+
+<br>
+    <form action="/quizes/quiz_time/{{course.id}}/quiz/next_question">
+        <label for="rand_question">Question: </label><br>
+        <div class="question_txt" id="rand_question" name="rand_question" disabled>{{ question[3] }}</div>
+        <label for="rand_answer">Hover over to reveal answer:</label><br>
+        <div class="answer_txt" id="rand_answer" name="rand_answer" disabled>
+            <span class="spoiler">{{ question[4] }}</span>
+        </div>
+        <input type="submit" value="Next question">
+    </form>
+    <form action="/quizes/quiz_time"><input type="submit" value="Pick another course"></form>
+
+{% endblock %}

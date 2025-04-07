@@ -1,0 +1,11 @@
+# docker-compose.yml
+
+# Usage: docker-compose up -d
+
+services:
+  web:
+    build: .
+    image: docker.io/simonmartinsson/studyroom
+    platform: linux/amd64
+    ports:
+      - 80:80

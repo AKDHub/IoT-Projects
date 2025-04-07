@@ -1,0 +1,299 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  background-color: #333333;
+  vertical-align: middle;
+}
+
+
+.header {
+  overflow: hidden;
+  background-color: rgba(238, 114, 24, 0.97);
+  padding: 20px 10px;
+}
+
+.header div.header_align {
+  text-align: center;
+}
+
+.header a {
+  color: black;
+  text-decoration: none;
+  max-width: 100%;
+}
+
+.header a.logo img {
+  width: 20%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.header a.header_text {
+  font-family: monospace;
+  font-size: 40px;
+  padding-left: 20px;
+  text-align: center;
+  color: azure;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+
+/* Add a black background color to the top navigation */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  /*position: -webkit-sticky;
+  position: sticky;
+  top: 0;*/
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover, .dropdown:hover, .dropdown button.dropbtn:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: rgba(238, 114, 24, 0.97);
+  color: white;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown .dropbtn-active {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: rgba(238, 114, 24, 0.97);
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*  STYLE QUIZ PAGE */
+
+.input\.question {
+  width: 70%;
+  height: 150px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-size: 20px;
+}
+
+.input\.answer {
+  width: 70%;
+  height: 150px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-size: 20px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* TAKE QUIZ SIDE STYLES */
+
+div.take_quiz_div {
+  width: fit-content;
+}
+
+ul.take_quiz_list {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+ul.take_quiz_list li {
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+ul.take_quiz_list li span:nth-child(odd) {
+  padding-right: 6px;
+  color: white;
+}
+
+ul.take_quiz_list li span:nth-child(even) {
+  float: right;
+  padding-left: 6px;
+  color: #fff;
+}
+
+ul.take_quiz_list span {
+  position: relative;
+  bottom: -7px;
+}
+
+a.take_quiz_link {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a.take_quiz_link:hover {
+  color: #cccccc;
+  cursor: pointer;
+}
+
+a.quiz_link {
+  color: white;
+  cursor: pointer;
+}
+
+/* Question style */
+
+.question_txt {
+  width: 70%;
+  height: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer_txt {
+  width: 70%;
+  height: 100px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #333333;
+  color: #ffffff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spoiler {
+  color: #ffffff;
+  background-color: #ffffff;
+}
+
+.spoiler:hover {
+  background-color: #333333;
+}
+
+form.add_question input[type=submit] {
+  background-color: rgba(238, 114, 24, 0.97);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+div.form_add_question {
+
+}
+
+form.course_info_take_quiz input[type=submit] {
+  background-color: rgba(238, 114, 24, 0.97);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+ul.course_list {
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+ul.course_list li {
+  margin-bottom: 5px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+ul.course_list li a {
+  color: white;
+}
+

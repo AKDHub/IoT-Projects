@@ -1,0 +1,26 @@
+{% extends "profile.html" %}
+
+{% block title %}
+login
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <h1>Please login</h1>
+    <br>
+    <form action="/login_user" method="post">
+      <input type="text" placeholder="Username" name="username" value="{{
+        request.form.username }}">
+       <input type="password" placeholder="Password" name="password" value="{{
+        request.form.password }}">
+      <input class="btn btn-default" type="submit" value="Login">
+    </form>
+    {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
+    {% if success %}
+      <p class="success"><strong>{{ success }}</strong>
+    {% endif %}
+  </div>
+
+{% endblock %}

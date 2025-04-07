@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}
+Courses
+{% endblock %}
+
+{% block menu %}
+    <div class="topnav">
+        <a href="/">Home</a>
+        <div class="dropdown">
+            <form action="/courses">
+                <button class="dropbtn-active">Courses
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+                {% for i in range(courses | length) %}
+                <a href="/courses/info?course_id={{ courses[i][0] }}">{{ courses[i][1] }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="dropdown">
+            <form action="/quizes">
+                <button class="dropbtn">Quiz
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+                <a href="/quizes/quiz_time">Take Quiz</a>
+                <a href="/quizes/add">Add Quiz</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            {% if 'username' in session %}
+            <form action="/profile">
+            {% else %}
+            <form action="/login">
+            {% endif %}
+                <button class="dropbtn" type="submit">Profile
+                    <i class="fa fa-caret-down"></i>
+                </button>
+            </form>
+            <div class="dropdown-content">
+            {% if 'username' in session %}
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <p>Find out more about the courses available!</p>
+    <ul class="course_list">
+    {% for i in range(courses | length) %}
+        <li>
+            <a href="/courses/info?course_id={{ courses[i][0] }}">{{ courses[i][1] }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
