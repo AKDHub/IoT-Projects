@@ -10,6 +10,10 @@ Welcome to Ali Kristian David Chehade's Github. The projects uploaded here are e
 These projects focus on learning tests, sorting, search and recursive functions.
 
 
+### - Cloud
+This project is designed to create a cloud-based study forum application using Python and Flask. A docker container is created and was hosted on Azure for access to the webclient.
+
+
 
 ### - Big Data
 
