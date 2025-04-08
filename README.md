@@ -17,7 +17,7 @@ This project is designed to create a cloud-based study forum application using P
 
 ### - Big Data
 
-Python program that stores and displays quotes using a Redis database. The application fetches quotes from https://dummyjson.com/quotes and stores them. Users can retrieve a random quote from the database through the program. Additionally users are able to add their own quotes, which are then saved in the database. The project is modularized into separate Python files, such as init-db.py, get_quote.py, and add_quote.py, and also includes a simple menu system for user interaction.
+Python program that stores and displays quotes using a Redis database. The application fetches quotes from https://dummyjson.com/quotes and stores them. Users can retrieve a random quote from the database through the program. Additionally users are able to add their own quotes, which are then saved in the database.
 
 
 
